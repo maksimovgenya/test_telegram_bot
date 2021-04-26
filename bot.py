@@ -17,6 +17,7 @@ def start_bot(update: Updater, context: CallbackContext):
 	mytext = """Приветствуем тебя {}
 
 	Это частный чат-бот CrowdWiz для Евгения и Виталия""".format(update.message.chat.first_name)
+	
 	update.message.reply_text(mytext)
 
 def chat(update: Updater, context: CallbackContext):
@@ -27,6 +28,9 @@ def chat(update: Updater, context: CallbackContext):
 
 def main():
 	updtr = Updater(settings.TOKEN_TELEGRAMM)
+
+	#'1766791115:AAG9KiAlVOR67iDx3Qyq4pV8TfOJO9KLLNw'
+	#settings.TOKEN_TELEGRAMM
 
 	updtr.dispatcher.add_handler(CommandHandler("start", start_bot))
 	updtr.dispatcher.add_handler(MessageHandler(Filters.text, chat))
